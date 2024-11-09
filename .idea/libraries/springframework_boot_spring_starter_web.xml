@@ -1,0 +1,71 @@
+<component name="libraryTable">
+  <library name="springframework.boot.spring.starter.web" type="repository">
+    <properties maven-id="org.springframework.boot:spring-boot-starter-web:2.7.18" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.7.18/spring-boot-starter-web-2.7.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter/2.7.18/spring-boot-starter-2.7.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.7.18/spring-boot-2.7.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.7.18/spring-boot-autoconfigure-2.7.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.7.18/spring-boot-starter-logging-2.7.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.12/logback-classic-1.2.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.2.12/logback-core-1.2.12.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.3.31/spring-core-5.3.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jcl/5.3.31/spring-jcl-5.3.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-json/2.7.18/spring-boot-starter-json-2.7.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.13.5/jackson-databind-2.13.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.13.5/jackson-annotations-2.13.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.13.5/jackson-core-2.13.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.5/jackson-datatype-jdk8-2.13.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.5/jackson-datatype-jsr310-2.13.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.5/jackson-module-parameter-names-2.13.5.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-tomcat/2.7.18/spring-boot-starter-tomcat-2.7.18.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/9.0.83/tomcat-embed-core-9.0.83.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-el/9.0.83/tomcat-embed-el-9.0.83.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-websocket/9.0.83/tomcat-embed-websocket-9.0.83.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.31/spring-web-5.3.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.3.31/spring-beans-5.3.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.3.31/spring-webmvc-5.3.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.3.31/spring-aop-5.3.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.3.31/spring-context-5.3.31.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/5.3.31/spring-expression-5.3.31.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-web/2.7.18/spring-boot-starter-web-2.7.18-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter/2.7.18/spring-boot-starter-2.7.18-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.7.18/spring-boot-2.7.18-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.7.18/spring-boot-autoconfigure-2.7.18-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-logging/2.7.18/spring-boot-starter-logging-2.7.18-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-classic/1.2.12/logback-classic-1.2.12-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/ch/qos/logback/logback-core/1.2.12/logback-core-1.2.12-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.32/slf4j-api-1.7.32-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.3.31/spring-core-5.3.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-jcl/5.3.31/spring-jcl-5.3.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/yaml/snakeyaml/1.30/snakeyaml-1.30-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-json/2.7.18/spring-boot-starter-json-2.7.18-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.13.5/jackson-databind-2.13.5-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.13.5/jackson-annotations-2.13.5-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.13.5/jackson-core-2.13.5-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.13.5/jackson-datatype-jdk8-2.13.5-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.13.5/jackson-datatype-jsr310-2.13.5-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/module/jackson-module-parameter-names/2.13.5/jackson-module-parameter-names-2.13.5-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-starter-tomcat/2.7.18/spring-boot-starter-tomcat-2.7.18-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.3.31/spring-web-5.3.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.3.31/spring-beans-5.3.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.3.31/spring-webmvc-5.3.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.3.31/spring-aop-5.3.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.3.31/spring-context-5.3.31-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/spring-expression/5.3.31/spring-expression-5.3.31-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

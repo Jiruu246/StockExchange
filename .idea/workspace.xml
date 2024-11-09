@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7fe6d423-e8ad-42c5-97d7-066f8d1d9027" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_jupiter.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring_starter_web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CEX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/dto/OrderBookResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/dto/OrderRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/model/Match.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/model/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/model/OrderBook.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/service/Exchange.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/service/MarketMaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/service/MatchingEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/com/jiruu/model/OrderBookTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/com/jiruu/service/MarketMakerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/com/jiruu/service/MatchingEngineTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2oJTEkREDBaSXfLoEeIdHofPtJi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.MarketMakerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MarketMakerTest.generateQuote.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.MatchingEngineTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MatchingEngineTest.matchLimitOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MatchingEngineTest.matchMarketOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MatchingEngineTest.matchOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MatchingEngineTest.partialMatchMarketOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MatchingEngineTest.partialMatchMarketOrderOtherSide.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MatchingEngineTest.partialMatchOtherSide.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.OrderBookTest.cannotAddDuplicateOrder.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderBookTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderBookTest.getBidOrders.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderBookTest.orderIsImmutable.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderBookTest.ordersAreImmutableAfterAdding.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderBookTest.ordersListAreImmutableAfterAdding.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderBookTest.peakOrderTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OrderBookTest.removeOrderTest.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/source/java-projects/CEX/lib&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;E:/source/java-projects/CEX/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.jiruu.service" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.jiruu.service" />
+      <recent name="com.jiruu.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.OrderBookTest">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jiruu.Main" />
+      <module name="StockExchange" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MarketMakerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockExchange" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiruu.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiruu.service" />
+      <option name="MAIN_CLASS_NAME" value="com.jiruu.service.MarketMakerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatchingEngineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockExchange" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiruu.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiruu.service" />
+      <option name="MAIN_CLASS_NAME" value="com.jiruu.service.MatchingEngineTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatchingEngineTest.matchLimitOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockExchange" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiruu.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiruu.service" />
+      <option name="MAIN_CLASS_NAME" value="com.jiruu.service.MatchingEngineTest" />
+      <option name="METHOD_NAME" value="matchLimitOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatchingEngineTest.partialMatchMarketOrder" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockExchange" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiruu.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiruu.service" />
+      <option name="MAIN_CLASS_NAME" value="com.jiruu.service.MatchingEngineTest" />
+      <option name="METHOD_NAME" value="partialMatchMarketOrder" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderBookTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="StockExchange" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.jiruu.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.jiruu.model" />
+      <option name="MAIN_CLASS_NAME" value="com.jiruu.model.OrderBookTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.OrderBookTest" />
+      <item itemvalue="JUnit.MarketMakerTest" />
+      <item itemvalue="JUnit.MatchingEngineTest" />
+      <item itemvalue="JUnit.MatchingEngineTest.matchLimitOrder" />
+      <item itemvalue="JUnit.MatchingEngineTest.partialMatchMarketOrder" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.OrderBookTest" />
+        <item itemvalue="JUnit.MarketMakerTest" />
+        <item itemvalue="JUnit.MatchingEngineTest" />
+        <item itemvalue="JUnit.MatchingEngineTest.matchLimitOrder" />
+        <item itemvalue="JUnit.MatchingEngineTest.partialMatchMarketOrder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fe6d423-e8ad-42c5-97d7-066f8d1d9027" name="Changes" comment="" />
+      <created>1730586570088</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1730586570088</updated>
+    </task>
+    <servers />
+  </component>
+</project>
