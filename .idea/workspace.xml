@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fe6d423-e8ad-42c5-97d7-066f8d1d9027" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_jupiter.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/springframework_boot_spring_starter_web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CEX.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/dto/OrderBookResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/dto/OrderRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/model/Match.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/model/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/model/OrderBook.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/service/Exchange.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/service/MarketMaker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/java/com/jiruu/service/MatchingEngine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/jiruu/model/OrderBookTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/jiruu/service/MarketMakerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/jiruu/service/MatchingEngineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/jiruu/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/jiruu/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/java/com/jiruu/service/Exchange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/java/com/jiruu/service/Exchange.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,12 +64,12 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/source/java-projects/CEX/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/source/java-projects/StockExchange&quot;,
     &quot;onboarding.tips.debug.path&quot;: &quot;E:/source/java-projects/CEX/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
@@ -106,7 +87,7 @@
       <recent name="com.jiruu.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.OrderBookTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.jiruu.Main" />
       <module name="StockExchange" />
