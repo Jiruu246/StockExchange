@@ -17,7 +17,7 @@ public class Exchange {
 
     public Exchange() {
         this.orderBook = new OrderBook();
-        this.marketMaker = new MarketMaker(20_000, UUID.randomUUID().toString());
+        this.marketMaker = new MarketMaker(10_000, UUID.randomUUID().toString());
         this.users = new ArrayList<>();
         marketMaking(orderBook);
     }
@@ -41,12 +41,14 @@ public class Exchange {
     }
 
     public void placeLimitOrder(String userId, boolean isBuy, int unit, double limit) {
+        assert users.contains(userId);
         Order order = new Order(UUID.randomUUID().toString(), "1", userId, isBuy, unit, limit);
         Match[] matches = MatchingEngine.MatchLimitOrder(order, orderBook);
         marketMaking(orderBook);
     }
 
     public void placeMarketOrder(String userId, boolean isBuy, int unit) {
+        assert users.contains(userId);
         Order order = new Order(UUID.randomUUID().toString(), "1", userId, isBuy, unit, -100);
         Match[] matches = MatchingEngine.MatchMarketOrder(order, orderBook);
         int remainingUnits = unit - Arrays.stream(matches).mapToInt(Match::getFilledUnits).sum();
@@ -64,6 +66,10 @@ public class Exchange {
 
     public Order[] getBookOrders(boolean isBuy) {
         return isBuy? orderBook.getBidOrders().toArray(new Order[0]): orderBook.getAskOrders().toArray(new Order[0]);
+    }
+
+    public boolean userExists(String userId) {
+        return users.contains(userId);
     }
 
 }
