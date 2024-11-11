@@ -1,5 +1,6 @@
 package com.jiruu;
 
+import com.jiruu.dto.LimitResponse;
 import com.jiruu.dto.OrderBookResponse;
 import com.jiruu.dto.OrderRequest;
 import com.jiruu.model.Order;
@@ -8,10 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
+import java.io.Console;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(
@@ -64,11 +69,19 @@ public class Controller {
         final SseEmitter emitter = new SseEmitter(0L);
         Executors.newSingleThreadScheduledExecutor().scheduleAtFixedRate(() -> {
             try {
-                final Order[] bidOrders = exchange.getBookOrders(true);
-                final Order[] askOrders = exchange.getBookOrders(false);
-                final OrderBookResponse response = new OrderBookResponse();
-                response.setBidOrders(bidOrders);
-                response.setAskOrders(askOrders);
+                final LimitResponse[] bidOrders = Arrays.stream(exchange.getBookOrders(true))
+                        .collect(Collectors.groupingBy(Order::getLimit, Collectors.summingInt(Order::getUnit)))
+                        .entrySet().stream()
+                        .map(entry -> new LimitResponse(entry.getKey(), entry.getValue()))
+                        .toArray(LimitResponse[]::new);
+
+                final LimitResponse[] askOrders = Arrays.stream(exchange.getBookOrders(false))
+                        .collect(Collectors.groupingBy(Order::getLimit, Collectors.summingInt(Order::getUnit)))
+                        .entrySet().stream()
+                        .map(entry -> new LimitResponse(entry.getKey(), entry.getValue()))
+                        .toArray(LimitResponse[]::new);
+
+                final OrderBookResponse response = new OrderBookResponse(bidOrders, askOrders);
                 emitter.send(response);
             } catch (Exception e) {
                 emitter.completeWithError(e);

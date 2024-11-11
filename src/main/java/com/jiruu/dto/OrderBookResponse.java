@@ -1,24 +1,27 @@
 package com.jiruu.dto;
 
-import com.jiruu.model.Order;
-
 public class OrderBookResponse {
-    private Order[] bidOrders;
-    private Order[] askOrders;
+    private LimitResponse[] bidOrders;
+    private LimitResponse[] askOrders;
 
-    public Order[] getBidOrders() {
+    public OrderBookResponse(LimitResponse[] bidOrders, LimitResponse[] askOrders) {
+        this.bidOrders = bidOrders;
+        this.askOrders = askOrders;
+    }
+
+    public LimitResponse[] getBidOrders() {
         return bidOrders;
     }
 
-    public void setBidOrders(Order[] bidOrders) {
+    public void setBidOrders(LimitResponse[] bidOrders) {
         this.bidOrders = bidOrders;
     }
 
-    public Order[] getAskOrders() {
+    public LimitResponse[] getAskOrders() {
         return askOrders;
     }
 
-    public void setAskOrders(Order[] askOrders) {
+    public void setAskOrders(LimitResponse[] askOrders) {
         this.askOrders = askOrders;
     }
 }
