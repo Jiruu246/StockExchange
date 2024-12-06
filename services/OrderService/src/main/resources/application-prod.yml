@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+services:
+  matching-engine:
+    ip: ${MATCHING_ENGINE_IP}
+    port: 4446
+  multicast:
+    group: 239.255.255.250
+    port: 4447
+  uni-cast:
+    port: 4445
