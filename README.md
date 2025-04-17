@@ -98,3 +98,7 @@ Used for:
 Transaction synchronization (the "locking" mechanism)
 Detecting and resolving conflicts when multiple ports try to modify the same state
 Ensuring clients see their own messages in a consistent order
+
+# software version
+jdk 18
+maven 3.9.9
