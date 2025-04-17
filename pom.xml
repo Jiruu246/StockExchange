@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>Libraries</module>
+        <module>libraries</module>
         <module>services/MatchingEngine</module>
         <module>services/OrderService</module>
         <module>services/Retransmitter</module>
