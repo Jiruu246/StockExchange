@@ -1,0 +1,74 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout docker compose') {
+            steps {
+                sh 'git config core.sparseCheckout true'
+                sh 'echo "docker-compose.yml" >> .git/info/sparse-checkout'
+                checkout scm
+            }
+        }
+
+        stage('Download Artifacts') {
+            steps {
+                // Pull artifacts from the build pipeline
+                copyArtifacts(
+                    projectName: 'jenkins-pipeline-build',
+                    filter: '**/target/*.jar',
+                    selector: lastSuccessful()
+                )
+            }
+        }
+
+        stage('Prepare Docker Compose') {
+            steps {
+                script {
+                    def matchingEnginePath = 'services/MatchingEngine/target'
+                    def orderServicePath = 'services/OrderService/target'
+
+                    if (!fileExists(matchingEnginePath) || !fileExists(orderServicePath)) {
+                        error "Target directories not found. Build may have failed."
+                    }
+
+                    def matchingEngineJars = findFiles(glob: "${matchingEnginePath}/*.jar")
+                    def orderServiceJars = findFiles(glob: "${orderServicePath}/*.jar")
+
+                    if (matchingEngineJars.length == 0 || orderServiceJars.length == 0) {
+                        error "JAR files not found. Build may have failed."
+                    }
+
+                    def matchingEngineJar = matchingEngineJars[0].name
+                    def orderServiceJar = orderServiceJars[0].name
+
+                    echo "Found MatchingEngine JAR: ${matchingEngineJar}"
+                    echo "Found OrderService JAR: ${orderServiceJar}"
+
+                    writeFile file: '.env', text: """
+                        MATCHING_ENGINE_JAR_FILE=${matchingEngineJar}
+                        ORDER_SERVICE_JAR_FILE=${orderServiceJar}
+                    """.stripIndent().trim()
+                }
+            }
+        }
+
+        stage('Build & Deploy with Docker Compose') {
+            steps {
+                sh 'docker compose down || true'
+                sh 'docker compose up --build -d'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Deploy successful! Services are up and running."
+        }
+        failure {
+            echo "Deploy failed. Check logs for details."
+        }
+        always {
+            cleanWs()
+        }
+    }
+}

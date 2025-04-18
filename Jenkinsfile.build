@@ -1,0 +1,51 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-openjdk-18'
+            args '-v /var/jenkins_home/.m2:/root/.m2'
+        }
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh 'mvn clean package -DskipTests'
+            }
+        }
+        
+        stage('Test') {
+            steps {
+                sh 'mvn -B test -DtrimStackTrace=false -X'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
+        
+        stage('Archive Artifacts') {
+            steps {
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+            }
+        }
+    }
+    
+    post {
+        success {
+            echo "Build successful! Artifacts uploaded to repository."
+        }
+        failure {
+            echo "Build failed. Check logs for details."
+        }
+        always {
+            cleanWs()
+        }
+    }
+}

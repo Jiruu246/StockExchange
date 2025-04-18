@@ -22,7 +22,7 @@ import com.jiruu.net.Request;
 public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
-    private static final String MULTICAST_GROUP = "4";
+    private static final String MULTICAST_GROUP = "239.255.255.250";
     private static final int SERVER_PORT = 4446;
     private static final int MULTICAST_PORT = 4447;
     private static final BlockingQueue<Request> orderQueue = new LinkedBlockingQueue<>();
