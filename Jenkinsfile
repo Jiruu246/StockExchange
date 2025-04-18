@@ -21,7 +21,7 @@ pipeline {
         
         stage('Test') {
             steps {
-                sh 'mvn -B clean test -DtrimStackTrace=false -X'
+                sh 'mvn -B test -DtrimStackTrace=false -X'
             }
             post {
                 always {
