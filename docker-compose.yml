@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  order-service:
+    build:
+        context: .services/OrderService
+        dockerfile: Dockerfile
+        args:
+          JAR_FILE: OrderService-1.0-SNAPSHOT.jar
+    image: order-service:latest
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - stock-exchange
+    ports:
+      - "8080:8082"
+
+  matching-engine:
+    build:
+        context: .services/MatchingEngine
+        dockerfile: Dockerfile
+        args:
+          JAR_FILE: MatchingEngine-1.0-SNAPSHOT-jar-with-dependencies.jar
+    image: matching-engine:latest
+    networks:
+      - stock-exchange
+
+networks:
+  stock-exchange:
+    driver: bridge

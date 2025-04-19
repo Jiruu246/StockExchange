@@ -15,6 +15,7 @@ public class ServiceConfig {
         }
 
         public void setIp(String ip) {
+            System.out.println("Setting IP: " + ip);
             this.ip = ip;
         }
 
