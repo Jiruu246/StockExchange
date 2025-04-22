@@ -1,0 +1,29 @@
+services:
+  matching-engine:
+    build:
+        context: services/MatchingEngine
+        dockerfile: Dockerfile
+        args:
+          # MatchingEngine-1.0-SNAPSHOT-jar-with-dependencies.jar
+          JAR_FILE: ${MATCHING_ENGINE_JAR_FILE}
+    networks:
+      - stock-exchange
+
+  order-service:
+    build:
+      context: services/OrderService
+      dockerfile: Dockerfile
+      args:
+        # OrderService-1.0-SNAPSHOT.jar
+        JAR_FILE: ${ORDER_SERVICE_JAR_FILE}
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - MATCHING_ENGINE_IP=matching-engine
+    networks:
+      - stock-exchange
+    ports:
+      - "8082:8080"
+
+networks:
+  stock-exchange:
+    driver: bridge

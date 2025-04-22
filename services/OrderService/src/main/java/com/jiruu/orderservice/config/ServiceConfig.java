@@ -15,6 +15,10 @@ public class ServiceConfig {
         }
 
         public void setIp(String ip) {
+            if (ip == null || ip.startsWith("${") && ip.endsWith("}")) {
+                throw new IllegalStateException("Environment variable for MATCHING_ENGINE_IP is not set properly!");
+            }
+            System.out.println("Service IP: " + ip);
             this.ip = ip;
         }
 

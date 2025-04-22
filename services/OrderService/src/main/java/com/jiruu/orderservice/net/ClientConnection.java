@@ -3,7 +3,6 @@ package com.jiruu.orderservice.net;
 import com.jiruu.net.Message;
 import com.jiruu.net.MsgFlag;
 import com.jiruu.orderservice.config.ServiceConfig;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
