@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 
 import com.jiruu.matching.engine.model.Exchange;
 import com.jiruu.matching.engine.model.Transaction;
+import com.jiruu.matching.engine.net.Sequencer;
 import com.jiruu.matching.engine.net.ServerConnection;
 import com.jiruu.net.Message;
 import com.jiruu.net.MsgFlag;
@@ -83,7 +84,7 @@ public class Main {
                                 MsgFlag.ACK,
                                 1,
                                 UUID.randomUUID(),
-                                -1, //TODO: This needs a correct seq number
+                                Sequencer.getInstance().getNextSequenceNumber(),
                                 0L,
                                 BotReq.toBytes(),
                                 InetAddress.getByName(MULTICAST_GROUP),
@@ -94,7 +95,7 @@ public class Main {
                                 MsgFlag.ACK,
                                 1,
                                 UUID.randomUUID(),
-                                -1, //TODO: This needs a correct seq number
+                                Sequencer.getInstance().getNextSequenceNumber(),
                                 0L,
                                 SldReq.toBytes(),
                                 InetAddress.getByName(MULTICAST_GROUP),
@@ -106,6 +107,7 @@ public class Main {
                         Thread sendThread = new Thread(() -> {
                             try {
                                 connection.sendMulticast(msg);
+                                System.out.println("Sent message: " + msg);
                             } catch (IOException e) {
                                 LOGGER.log(Level.SEVERE, "Error sending message: ", e);
                             }

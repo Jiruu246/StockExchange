@@ -2,6 +2,7 @@ package com.jiruu.orderservice.service;
 
 import com.jiruu.orderservice.dto.LimitDTO;
 import com.jiruu.orderservice.dto.OrderBookDTO;
+import com.jiruu.orderservice.dto.OrderDTO;
 import com.jiruu.orderservice.dto.PriceHistoryDTO;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,11 @@ import java.util.logging.Logger;
 
 @Service
 public class ReportService {
-    private class OrderBookLogger {
+    private static class OrderBookLogger {
         public final TreeMap<Double, Integer> bidVolumes = new TreeMap<>();
         public final TreeMap<Double, Integer> askVolumes = new TreeMap<>();
+        public final Map<UUID, OrderDTO> bidOrders = new HashMap<>();
+        public final Map<UUID, OrderDTO> askOrders = new HashMap<>();
     }
     private final OrderBookLogger orderBookLogger = new OrderBookLogger();
     private final Logger LOGGER = Logger.getLogger(ReportService.class.getName());
@@ -63,23 +66,35 @@ public class ReportService {
         return new OrderBookDTO(bidOrders, askOrders);
     }
 
-    //TODO: the issue with this is if there's matched order well add the new order and when
-    // a matched transaction come in it will remove the volume from the new order, also with the current
-    // design of how matching different price level works with gap between bid and ask order being matched
-    // it cannot deduct the correct volume if the price is using mid price
-    public void recordOrder(double price, int newVolume, boolean isBuy) {
+    public void recordOrder(UUID orderId, double price, int volume, boolean isBuy) {
         Map<Double, Integer> volumes = isBuy ? orderBookLogger.bidVolumes : orderBookLogger.askVolumes;
+        Map<UUID, OrderDTO> orders = isBuy ? orderBookLogger.bidOrders : orderBookLogger.askOrders;
         if (volumes.containsKey(price)) {
-            volumes.put(price, volumes.get(price) + newVolume);
+            volumes.put(price, volumes.get(price) + volume);
         } else {
-            volumes.put(price, newVolume);
+            volumes.put(price, volume);
         }
+        orders.put(orderId, new OrderDTO(orderId.toString(), isBuy, volume, price));
     }
 
-    public void recordTransaction(double price, int volume, boolean isBought) {
-        Map<Double, Integer> volumes = isBought ? orderBookLogger.askVolumes : orderBookLogger.bidVolumes;
-        assert volumes.containsKey(price) && (volumes.get(price) >= volume); //must be in the order book at this point
-        volumes.put(price, volumes.get(price) - volume);
+    public void recordTransaction(UUID orderId, double price, int volume, boolean isBought) {
+        Map<UUID, OrderDTO> orders = isBought ? orderBookLogger.bidOrders : orderBookLogger.askOrders;
+        assert orders.containsKey(orderId): "Order not found in order book";
+        Map<Double, Integer> volumes = isBought ? orderBookLogger.bidVolumes : orderBookLogger.askVolumes;
+        OrderDTO order = orders.get(orderId);
+        assert order != null: "Order not found in order book";
+        assert order.getUnit() >= volume: "Order volume is less than transaction volume";
+        Double Limit = order.getLimit();
+        order.setUnit(order.getUnit() - volume);
+        if (order.getUnit() == 0) {
+            orders.remove(orderId);
+        }
+        assert volumes.containsKey(Limit) && (volumes.get(Limit) >= volume):
+                "Cannot find Total volume or Total volume is less than transaction volume";
+        volumes.put(Limit, volumes.get(Limit) - volume);
+        if (volumes.get(Limit) == 0) {
+            volumes.remove(Limit);
+        }
 
         //No transaction have ever happened in this period so far
         if (currentOpen == -1) {

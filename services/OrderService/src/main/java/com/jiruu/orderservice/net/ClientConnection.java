@@ -56,6 +56,8 @@ public class ClientConnection implements AutoCloseable {
                     continue;
                 }
 
+                assert message.globalSequenceNumber != -1L : "Global sequence number for ACK cannot be -1";
+
                 messageCache.put(message.globalSequenceNumber, message);
                 return message;
             } catch (Exception e) {
