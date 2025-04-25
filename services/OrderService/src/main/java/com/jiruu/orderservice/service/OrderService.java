@@ -88,11 +88,11 @@ public class OrderService {
                 switch (request.RequestType) {
                     case BUY:
                     case SEL:
-                        reportService.recordOrder(request.Limit, request.Units, request.RequestType == ReqType.BUY);
+                        reportService.recordOrder(request.OrderId, request.Limit, request.Units, request.RequestType == ReqType.BUY);
                         break;
                     case BOT:
                     case SLD:
-                        reportService.recordTransaction(request.Limit, request.Units, request.RequestType == ReqType.BOT);
+                        reportService.recordTransaction(request.OrderId, request.Limit, request.Units, request.RequestType == ReqType.BOT);
                         break;
                 }
             }
