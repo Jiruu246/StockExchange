@@ -88,7 +88,7 @@ public class OrderService {
                 switch (request.RequestType) {
                     case BUY:
                     case SEL:
-                        reportService.recordOrder(request.OrderId, request.Limit, request.Units, request.RequestType == ReqType.BUY);
+                        reportService.recordOrder(request.Limit, request.Units, request.RequestType == ReqType.BUY);
                         break;
                     case BOT:
                     case SLD:

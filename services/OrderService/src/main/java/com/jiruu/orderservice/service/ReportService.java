@@ -19,8 +19,6 @@ public class ReportService {
     private static class OrderBookLogger {
         public final TreeMap<Double, Integer> bidVolumes = new TreeMap<>();
         public final TreeMap<Double, Integer> askVolumes = new TreeMap<>();
-        public final Map<UUID, OrderDTO> bidOrders = new HashMap<>();
-        public final Map<UUID, OrderDTO> askOrders = new HashMap<>();
     }
     private final OrderBookLogger orderBookLogger = new OrderBookLogger();
     private final Logger LOGGER = Logger.getLogger(ReportService.class.getName());
@@ -67,52 +65,53 @@ public class ReportService {
     }
 
     // TODO: Do we need OrderID?
-    public void recordOrder(UUID orderId, double price, int volume, boolean isBuy) {
+    public void recordOrder(double price, int volume, boolean isBuy) {
+        if (price <= 0 || volume <= 0) {
+            throw new IllegalArgumentException("Price and volume must be greater than 0");
+        }
+
         Map<Double, Integer> volumes = isBuy ? orderBookLogger.bidVolumes : orderBookLogger.askVolumes;
-        Map<UUID, OrderDTO> orders = isBuy ? orderBookLogger.bidOrders : orderBookLogger.askOrders;
+//        Map<UUID, OrderDTO> orders = isBuy ? orderBookLogger.bidOrders : orderBookLogger.askOrders;
         if (volumes.containsKey(price)) {
             volumes.put(price, volumes.get(price) + volume);
         } else {
             volumes.put(price, volume);
         }
-        orders.put(orderId, new OrderDTO(orderId.toString(), isBuy, volume, price));
+//        orders.put(orderId, new OrderDTO(orderId.toString(), isBuy, volume, price));
     }
 
-    public void recordTransaction(UUID orderId, double price, int volume, boolean isBought) {
-        Map<UUID, OrderDTO> orders = isBought ? orderBookLogger.bidOrders : orderBookLogger.askOrders;
-        assert orders.containsKey(orderId): "Order not found in order book";
-        Map<Double, Integer> volumes = isBought ? orderBookLogger.bidVolumes : orderBookLogger.askVolumes;
-        OrderDTO order = orders.get(orderId);
-        assert order != null: "Order not found in order book";
-        assert order.getUnit() >= volume: "Order volume is less than transaction volume";
-        Double Limit = order.getLimit();
-        order.setUnit(order.getUnit() - volume);
-        if (order.getUnit() == 0) {
-            orders.remove(orderId);
-        }
-        assert volumes.containsKey(Limit) && (volumes.get(Limit) >= volume):
-                "Cannot find Total volume or Total volume is less than transaction volume";
-        volumes.put(Limit, volumes.get(Limit) - volume);
-        if (volumes.get(Limit) == 0) {
-            volumes.remove(Limit);
+    // TODO: We don't need to check if the order exists in the order book, we only care about what
+    // limit it belong to
+    public void recordTransaction(double limitPrice, double effectivePrice, int volume, boolean isBought) {
+        if (limitPrice != -100) {
+            if (limitPrice <= 0 || effectivePrice <= 0 || volume <= 0) {
+                throw new IllegalArgumentException("Price and volume must be greater than 0");
+            }
+            Map<Double, Integer> volumes = isBought ? orderBookLogger.bidVolumes : orderBookLogger.askVolumes;
+            assert volumes.containsKey(limitPrice) && (volumes.get(limitPrice) >= volume):
+                    "Cannot find Total volume or Total volume is less than transaction volume";
+            volumes.put(limitPrice, volumes.get(limitPrice) - volume);
+            if (volumes.get(limitPrice) == 0) {
+                volumes.remove(limitPrice);
+            }
         }
 
         //No transaction have ever happened in this period so far
         if (currentOpen == -1) {
-            currentOpen = price;
-            currentHigh = price;
-            currentLow = price;
-            currentClose = price;
+            currentOpen = effectivePrice;
+            currentHigh = effectivePrice;
+            currentLow = effectivePrice;
+            currentClose = effectivePrice;
             return;
         }
 
-        if (price > currentHigh) {
-            currentHigh = price;
-        } else if (price < currentLow) {
-            currentLow = price;
+        if (effectivePrice > currentHigh) {
+            currentHigh = effectivePrice;
+        } else if (effectivePrice < currentLow) {
+            currentLow = effectivePrice;
         }
 
-        currentClose = price;
+        currentClose = effectivePrice;
     }
 
     @Scheduled(fixedRateString = "PT1M", initialDelayString = "PT1M")
