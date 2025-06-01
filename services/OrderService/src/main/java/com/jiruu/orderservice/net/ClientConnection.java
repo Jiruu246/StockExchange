@@ -3,6 +3,7 @@ package com.jiruu.orderservice.net;
 import com.jiruu.net.Message;
 import com.jiruu.net.MsgFlag;
 import com.jiruu.orderservice.config.ServiceConfig;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -66,6 +67,7 @@ public class ClientConnection implements AutoCloseable {
         }
     }
 
+    @PreDestroy
     @Override
     public void close() {
         multicastSocket.close();

@@ -66,6 +66,7 @@ public class ReportService {
         return new OrderBookDTO(bidOrders, askOrders);
     }
 
+    // TODO: Do we need OrderID?
     public void recordOrder(UUID orderId, double price, int volume, boolean isBuy) {
         Map<Double, Integer> volumes = isBuy ? orderBookLogger.bidVolumes : orderBookLogger.askVolumes;
         Map<UUID, OrderDTO> orders = isBuy ? orderBookLogger.bidOrders : orderBookLogger.askOrders;
@@ -115,7 +116,7 @@ public class ReportService {
     }
 
     @Scheduled(fixedRateString = "PT1M", initialDelayString = "PT1M")
-    private void logging() {
+    public void logging() {
         LOGGER.info("Finish period: " + LocalDateTime.ofInstant(
                 Instant.ofEpochSecond(period),
                 ZoneId.systemDefault()
