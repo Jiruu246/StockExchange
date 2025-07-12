@@ -12,6 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.jiruu.matching.engine.model.Exchange;
+import com.jiruu.matching.engine.model.Order;
+import com.jiruu.matching.engine.model.OrderBook;
 import com.jiruu.matching.engine.model.Transaction;
 import com.jiruu.matching.engine.net.Sequencer;
 import com.jiruu.matching.engine.net.ServerConnection;
@@ -78,8 +80,13 @@ public class Main {
                 // send out transactions result
                 for (Transaction transaction : transactions) {
                     List<Message> messages = new ArrayList<>();
-                    Request BotReq = new Request(ReqType.BOT, UUID.fromString(transaction.getToId()), transaction.getEffectivePrice(), transaction.getFilledUnits());
                     try {
+                        Order toOrder = exchange.getOrderById(transaction.getToId());
+                        if (toOrder == null) {
+                            LOGGER.log(Level.WARNING, "Order not found for ID: " + transaction.getToId());
+                            continue;
+                        }
+                        Request BotReq = new Request(ReqType.BOT, UUID.fromString(transaction.getToId()), toOrder.getLimit().getValue(), transaction.getEffectivePrice(), transaction.getFilledUnits());
                         messages.add(new Message(
                                 MsgFlag.ACK,
                                 1,
@@ -90,7 +97,12 @@ public class Main {
                                 InetAddress.getByName(MULTICAST_GROUP),
                                 MULTICAST_PORT)
                         );
-                        Request SldReq = new Request(ReqType.SLD, UUID.fromString(transaction.getFromId()), transaction.getEffectivePrice(), transaction.getFilledUnits());
+                        Order fromOrder = exchange.getOrderById(transaction.getFromId());
+                        if (fromOrder == null) {
+                            LOGGER.log(Level.WARNING, "Order not found for ID: " + transaction.getFromId());
+                            continue;
+                        }
+                        Request SldReq = new Request(ReqType.SLD, UUID.fromString(transaction.getFromId()), fromOrder.getLimit().getValue(), transaction.getEffectivePrice(), transaction.getFilledUnits());
                         messages.add(new Message(
                                 MsgFlag.ACK,
                                 1,
@@ -103,6 +115,7 @@ public class Main {
                     } catch (IOException e) {
                         LOGGER.log(Level.SEVERE, "Error creating message: ", e);
                     }
+
                     for (Message msg : messages) {
                         Thread sendThread = new Thread(() -> {
                             try {

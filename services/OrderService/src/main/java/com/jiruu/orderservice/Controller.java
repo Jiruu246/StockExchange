@@ -50,14 +50,6 @@ public class Controller {
         return ResponseEntity.ok(response);
     }
 
-//    @GetMapping("/market-price")
-//    public ResponseEntity<Map<String, Double>> getMarketPrice() {
-//        final Map<String, Double> response = new HashMap<>();
-//        response.put("bid", reportService.getMarketPrice(true));
-//        response.put("ask", reportService.getMarketPrice(false));
-//        return ResponseEntity.ok(response);
-//    }
-
     @PostMapping("/limit-order")
     public ResponseEntity<OrderDTO> placeLimitOrder(@RequestBody OrdRqDTO orderRequest) {
         if (orderRequest.limit <= 0) {

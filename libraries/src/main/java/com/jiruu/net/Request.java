@@ -9,17 +9,24 @@ public class Request implements Serializable {
     public final ReqType RequestType;
     public final UUID OrderId;
     public final double Limit;
+    public final double EffectivePrice;
     public final int Units;
 
     public final int BYTES = Integer.BYTES // ReqType;
             + 16 // UUID
             + Double.BYTES // Limit
+            + Double.BYTES // effectivePrice
             + Integer.BYTES; // Units
 
     public Request(ReqType requestType, UUID orderId, double limit, int units) {
+        this(requestType, orderId, limit, 0, units);
+    }
+
+    public Request(ReqType requestType, UUID orderId, double limit, double effectivePrice, int units) {
         this.RequestType = requestType;
         this.OrderId = orderId;
         this.Limit = limit;
+        this.EffectivePrice = effectivePrice;
         this.Units = units;
     }
 
@@ -29,6 +36,7 @@ public class Request implements Serializable {
         buffer.putLong(OrderId.getMostSignificantBits());
         buffer.putLong(OrderId.getLeastSignificantBits());
         buffer.putDouble(Limit);
+        buffer.putDouble(EffectivePrice);
         buffer.putInt(Units);
         return buffer.array();
     }
@@ -40,8 +48,9 @@ public class Request implements Serializable {
         long leastSigBits = buffer.getLong();
         UUID orderId = new UUID(mostSigBits, leastSigBits);
         double limit = buffer.getDouble();
+        double effectivePrice = buffer.getDouble();
         int units = buffer.getInt();
-        return new Request(requestType, orderId, limit, units);
+        return new Request(requestType, orderId, limit, effectivePrice, units);
     }
 
     public String toString() {
@@ -49,6 +58,7 @@ public class Request implements Serializable {
                 "RequestType=" + RequestType +
                 ", OrderId=" + OrderId +
                 ", Limit=" + Limit +
+                ", effectivePrice=" + EffectivePrice +
                 ", Units=" + Units +
                 '}';
     }

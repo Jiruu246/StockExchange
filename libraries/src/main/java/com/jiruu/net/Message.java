@@ -48,7 +48,10 @@ public class Message implements Serializable {
     // To avoid fragmentation, the message size should be less than 1024 bytes.
     final int messageSize = payload.length + addressBytes.length + FIXED_HEADER_SIZE;
     final int MAX_MESSAGE_SIZE = 1024;
-    assert messageSize > MAX_MESSAGE_SIZE : "Message size exceeds the maximum limit";
+    if (messageSize > MAX_MESSAGE_SIZE) {
+      throw new IllegalArgumentException(
+          "Message size (" + messageSize + ") exceeds the maximum limit of " + MAX_MESSAGE_SIZE + " bytes");
+    }
 
     this.flag = flag;
     this.publisherId = publisherId;
