@@ -57,6 +57,10 @@ public class Exchange {
         return orderBook.getAllLimits(isBuy);
     }
 
+    public Order getOrderById(String orderId) {
+        return orderBook.getOrder(orderId);
+    }
+
 //    public void updateOHLC(double lastPrice) {
 //        this.close = lastPrice;
 //

@@ -67,7 +67,7 @@ public class OrderService {
         try {
             connection.send(
                     message,
-                    InetAddress.getByName(serviceConfig.getMatchingEngine().getIp()),
+                    serviceConfig.getMatchingEngine().getIp(),
                     serviceConfig.getMatchingEngine().getPort());
             return new OrderDTO(orderId.toString(), isBuy, units, price);
         } catch (Exception e) {
@@ -88,11 +88,11 @@ public class OrderService {
                 switch (request.RequestType) {
                     case BUY:
                     case SEL:
-                        reportService.recordOrder(request.OrderId, request.Limit, request.Units, request.RequestType == ReqType.BUY);
+                        reportService.recordOrder(request.Limit, request.Units, request.RequestType == ReqType.BUY);
                         break;
                     case BOT:
                     case SLD:
-                        reportService.recordTransaction(request.OrderId, request.Limit, request.Units, request.RequestType == ReqType.BOT);
+                        reportService.recordTransaction(request.Limit, request.EffectivePrice, request.Units,  request.RequestType == ReqType.BOT);
                         break;
                 }
             }

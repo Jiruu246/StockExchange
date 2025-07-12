@@ -3,6 +3,7 @@ package com.jiruu.orderservice.net;
 import com.jiruu.net.Message;
 import com.jiruu.net.MsgFlag;
 import com.jiruu.orderservice.config.ServiceConfig;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -32,9 +33,9 @@ public class ClientConnection implements AutoCloseable {
         multicastSocket.joinGroup(mCastAddr, null);
     }
 
-    public void send(Message message, InetAddress address, int port) throws IOException {
+    public void send(Message message, String address, int port) throws IOException {
         byte[] messageBytes = message.toBytes();
-        DatagramPacket packet = new DatagramPacket(messageBytes, messageBytes.length, address, port);
+        DatagramPacket packet = new DatagramPacket(messageBytes, messageBytes.length, InetAddress.getByName(address), port);
         datagramSocket.send(packet);
 
         //TODO: Need to implement a failure handling mechanism
@@ -66,6 +67,7 @@ public class ClientConnection implements AutoCloseable {
         }
     }
 
+    @PreDestroy
     @Override
     public void close() {
         multicastSocket.close();
