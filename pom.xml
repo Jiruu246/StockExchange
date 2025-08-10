@@ -14,6 +14,7 @@
         <module>services/MatchingEngine</module>
         <module>services/OrderService</module>
         <module>services/Retransmitter</module>
+        <module>services/AccountService</module>
     </modules>
 
     <properties>
